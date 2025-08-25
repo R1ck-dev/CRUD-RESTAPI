@@ -1,0 +1,22 @@
+# VS Code + Maven + Java
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+.vscode/
+.history/
+*.code-workspace
+*.class
+*.log
+*.jar
+*.war
+*.ear
+logs/
+*.tmp
+spring.log
+.DS_Store
+Thumbs.db
+*.env
+
+# Configurações locais/sensíveis do Spring
+src/main/resources/application-local.properties
+src/main/resources/application-secret.properties
