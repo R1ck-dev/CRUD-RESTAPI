@@ -16,4 +16,5 @@ public interface CarService {
     List<CarModel> listCars();
 
     CarModel searchCarWithPlate(String plateForSearch);
+
 }

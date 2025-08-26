@@ -14,4 +14,6 @@ public interface BrandService {
     void deleteBrand(Integer idForDelete);
 
     List<BrandModel> listBrands();
+
+    // Boolean verifyEmptyBrand();
 } 
