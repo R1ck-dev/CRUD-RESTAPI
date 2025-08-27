@@ -34,4 +34,9 @@ public class CarController {
     public void deleteCar(@RequestBody Long id) {
         carService.deleteCar(id);
     }
+
+    @PostMapping(value = "/buscar_carro_placa")
+    public String findCarByPlate(@RequestBody String plate) {
+        return carService.searchCarWithPlate(plate);
+    }
 }

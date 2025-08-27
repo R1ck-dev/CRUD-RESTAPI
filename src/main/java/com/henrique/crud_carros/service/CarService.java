@@ -13,6 +13,6 @@ public interface CarService {
 
     String listCars();
 
-    CarModel searchCarWithPlate(String plateForSearch);
+    String searchCarWithPlate(String plateForSearch);
 
 }

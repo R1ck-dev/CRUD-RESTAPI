@@ -13,7 +13,7 @@ public class HomeController {
                 * Editar Informações de Carro Existente (editar_carro)<br>
                 * Listar Todos os Carros (listar_carros)<br>
                 * Deletar Carro (deletar_carro)<br>
-                * Buscar Carro p/ Placa (buscar_carro)<br>
+                * Buscar Carro p/ Placa (buscar_carro_placa)<br>
                 * Criar Marca (criar_marca)<br>
                 * Editar Informações de Marca Existente (editar_marca)<br>
                 * Listar Todas as Marcas (listar_marcas)<br>

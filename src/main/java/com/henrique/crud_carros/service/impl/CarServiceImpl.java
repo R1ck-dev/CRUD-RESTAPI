@@ -65,9 +65,16 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public CarModel searchCarWithPlate(String plateForSearch) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchCarWithPlate'");
+    public String searchCarWithPlate(String plateForSearch) {
+        List<CarModel> carsList = carRepository.findAll();
+        StringBuilder sb = new StringBuilder();
+        for (CarModel car : carsList) {
+            if (car.getPlate().equals(plateForSearch)) {
+                sb.append(car.toString());
+                return sb.toString();
+            }
+        }
+        return "Carro não encontrado";
     }
 
 }
