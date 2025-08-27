@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.henrique.crud_carros.dto.CarDTO;
+import com.henrique.crud_carros.dto.CarUpdateRequestDTO;
 import com.henrique.crud_carros.model.CarModel;
 import com.henrique.crud_carros.service.CarService;
 
@@ -38,5 +40,10 @@ public class CarController {
     @PostMapping(value = "/buscar_carro_placa")
     public String findCarByPlate(@RequestBody String plate) {
         return carService.searchCarWithPlate(plate);
+    }
+
+    @PutMapping(value = "/editar_carro")
+    public void updateCar(@RequestBody CarUpdateRequestDTO dto) {
+        carService.updateCarData(dto);
     }
 }

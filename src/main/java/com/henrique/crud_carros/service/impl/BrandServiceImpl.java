@@ -1,11 +1,13 @@
 package com.henrique.crud_carros.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.henrique.crud_carros.dto.BrandDTO;
+import com.henrique.crud_carros.dto.BrandUpdateRequestDTO;
 import com.henrique.crud_carros.model.BrandModel;
 import com.henrique.crud_carros.repository.BrandRepository;
 import com.henrique.crud_carros.service.BrandService;
@@ -26,9 +28,10 @@ public class BrandServiceImpl implements BrandService{
     }
 
     @Override
-    public void updateBrandData(Integer idForUpdate) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateBrandData'");
+    public void updateBrandData(BrandUpdateRequestDTO dto) {
+        Optional<BrandModel> brandForChange = brandRepository.findById(dto.getId());
+        brandForChange.ifPresent(brand -> {brand.setName(dto.getName()); 
+                                            brandRepository.save(brand);});
     }
 
     @Override

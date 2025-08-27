@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.henrique.crud_carros.dto.CarDTO;
+import com.henrique.crud_carros.dto.CarUpdateRequestDTO;
 import com.henrique.crud_carros.model.BrandModel;
 import com.henrique.crud_carros.model.CarModel;
 import com.henrique.crud_carros.repository.BrandRepository;
@@ -48,9 +49,28 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void updateCarData(Integer idForUpdate) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateCarData'");
+    public void updateCarData(CarUpdateRequestDTO dto) {
+        Optional<CarModel> optionalCar = carRepository.findById(dto.getId());
+        optionalCar.ifPresent(car -> {
+
+            if (dto.getName() != null && !dto.getName().isEmpty()) {
+                car.setName(dto.getName());
+            }
+
+            if (dto.getColor() != null && !dto.getColor().isEmpty()) {
+                car.setColor(dto.getColor());
+            }
+
+            if (dto.getPlate() != null && !dto.getPlate().isEmpty()) {
+                car.setPlate(dto.getPlate());
+            }
+
+            if (dto.getLaunchingYear() != null) {
+                car.setLaunchingYear(dto.getLaunchingYear());
+            }
+
+            carRepository.save(car);
+        });
     }
 
     @Override
