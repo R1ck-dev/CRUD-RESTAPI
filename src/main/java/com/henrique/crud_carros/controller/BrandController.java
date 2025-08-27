@@ -1,6 +1,7 @@
 package com.henrique.crud_carros.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +22,10 @@ public class BrandController {
     public BrandModel createBrand(@RequestBody BrandDTO dto) {
         BrandModel brand = brandService.createBrand(dto);
         return brand;
+    }
+
+    @GetMapping(value = "/listar_marcas")
+    public String listBrand() {
+        return brandService.listBrands();
     }
 }

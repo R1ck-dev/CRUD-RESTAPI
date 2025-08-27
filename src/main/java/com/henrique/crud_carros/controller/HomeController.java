@@ -16,7 +16,7 @@ public class HomeController {
                 * Buscar Carro p/ Placa (buscar_carro)<br>
                 * Criar Marca (criar_marca)<br>
                 * Editar Informações de Marca Existente (editar_marca)<br>
-                * Listar Todas as Marcas (listar_marca)<br>
+                * Listar Todas as Marcas (listar_marcas)<br>
                 * Deletar Marca (deletar_marca)<br>
                 """;
     }

@@ -2,6 +2,8 @@ package com.henrique.crud_carros.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,7 @@ public class BrandModel {
 
 
     @OneToMany(mappedBy = "brand")
+    @JsonManagedReference
     private List<CarModel> carsInBrand;
     
     public BrandModel() {}
@@ -46,5 +49,11 @@ public class BrandModel {
         this.carsInBrand = carsInBrand;
     }
 
+    @Override
+    public String toString() {
+        return "BrandModel [id=" + id + ", name=" + name + "]";
+    }
+
+    
     
 }

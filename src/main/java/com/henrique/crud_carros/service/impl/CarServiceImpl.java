@@ -55,9 +55,14 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<CarModel> listCars() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listCars'");
+    public String listCars() {
+        List<CarModel> carsList = carRepository.findAll();
+        StringBuilder sb = new StringBuilder();
+        for (CarModel car : carsList) {
+            sb.append(car.toString());
+            sb.append("<br>");
+        }
+        return sb.toString();
     }
 
     @Override

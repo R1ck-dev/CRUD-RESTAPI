@@ -38,9 +38,14 @@ public class BrandServiceImpl implements BrandService{
     }
 
     @Override
-    public List<BrandModel> listBrands() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listBrands'");
+    public String listBrands() {
+        List<BrandModel> brandsList = brandRepository.findAll();
+        StringBuilder sb = new StringBuilder();
+        for (BrandModel brand : brandsList) {
+            sb.append(brand.toString());
+            sb.append("<br>");
+        }
+        return sb.toString();
     }
 
     // @Override

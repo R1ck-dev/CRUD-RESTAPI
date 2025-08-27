@@ -1,5 +1,7 @@
 package com.henrique.crud_carros.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +32,7 @@ public class CarModel {
 
     @ManyToOne
     @JoinColumn(name = "brand")
+    @JsonBackReference
     private BrandModel brand;
 
     public CarModel() {}
@@ -88,6 +91,12 @@ public class CarModel {
 
     public void setBrand(BrandModel brand) {
         this.brand = brand;
+    }
+
+    @Override
+    public String toString() {
+        return "CarModel [id=" + id + ", name=" + name + ", color=" + color + ", launchingYear=" + launchingYear
+                + ", plate=" + plate + ", brand=" + brand + "]";
     }
     
 }
