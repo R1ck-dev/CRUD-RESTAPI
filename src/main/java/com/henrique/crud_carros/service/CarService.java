@@ -16,4 +16,6 @@ public interface CarService {
 
     String searchCarWithPlate(String plateForSearch);
 
+    Boolean verifyEqualPlate(String plate);
+
 }

@@ -29,6 +29,10 @@ public class CarServiceImpl implements CarService {
 
         Optional<BrandModel> optionalBrandModel = brandRepository.findByName(dto.getBrand());
 
+        if (verifyEqualPlate(dto.getPlate())) {
+            throw new RuntimeException("Placa já cadastrada");
+        }
+
         if (optionalBrandModel.isPresent()) {
             BrandModel brandObject = optionalBrandModel.get();
             carModel.setName(dto.getName());
@@ -62,7 +66,11 @@ public class CarServiceImpl implements CarService {
             }
 
             if (dto.getPlate() != null && !dto.getPlate().isEmpty()) {
-                car.setPlate(dto.getPlate());
+                if (verifyEqualPlate(dto.getPlate())) {
+                    throw new RuntimeException("Placa já cadastrada");
+                } else {
+                    car.setPlate(dto.getPlate());
+                }
             }
 
             if (dto.getLaunchingYear() != null) {
@@ -95,6 +103,17 @@ public class CarServiceImpl implements CarService {
             }
         }
         return "Carro não encontrado";
+    }
+
+    @Override
+    public Boolean verifyEqualPlate(String plate) {
+        List<CarModel> carsList = carRepository.findAll();
+        for (CarModel car : carsList) {
+            if (car.getPlate().equals(plate)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
