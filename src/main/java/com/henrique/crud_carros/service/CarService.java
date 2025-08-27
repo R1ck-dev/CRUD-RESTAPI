@@ -7,7 +7,7 @@ public interface CarService {
     
     CarModel createCar(CarDTO dto);
 
-    void deleteCar(Integer idForDelete);
+    void deleteCar(Long idForDelete);
 
     void updateCarData(Integer idForUpdate);
 

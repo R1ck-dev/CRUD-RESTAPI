@@ -9,7 +9,7 @@ public interface BrandService {
 
     void updateBrandData(Integer idForUpdate);
 
-    void deleteBrand(Integer idForDelete);
+    void deleteBrand(Long idForDelete);
 
     String listBrands();
 

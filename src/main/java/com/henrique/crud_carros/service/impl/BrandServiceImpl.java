@@ -32,9 +32,8 @@ public class BrandServiceImpl implements BrandService{
     }
 
     @Override
-    public void deleteBrand(Integer idForDelete) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteBrand'");
+    public void deleteBrand(Long idForDelete) {
+        brandRepository.deleteById(idForDelete);
     }
 
     @Override

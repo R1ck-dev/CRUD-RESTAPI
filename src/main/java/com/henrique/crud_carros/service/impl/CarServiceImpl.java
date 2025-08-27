@@ -43,9 +43,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void deleteCar(Integer idForDelete) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteCar'");
+    public void deleteCar(Long idForDelete) {
+        carRepository.deleteById(idForDelete);
     }
 
     @Override

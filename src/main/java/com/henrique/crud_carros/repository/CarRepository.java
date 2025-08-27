@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.henrique.crud_carros.model.CarModel;
 
 @Repository
-public interface CarRepository extends JpaRepository<CarModel, Integer>{
+public interface CarRepository extends JpaRepository<CarModel, Long>{
 
 } 
